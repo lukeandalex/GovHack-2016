@@ -1,32 +1,29 @@
+// This example requires the Visualization library. Include the libraries=visualization
+// parameter when you first load the API. For example:
+// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=visualization">
+
 var map, heatmap;
 
 var csv = "EXPORT_Detection20160727";
 
-var points = [];
-
 function initMap() {
-	
 
-	
 	$.get(csv + ".csv", function(csvFile) {
-
-	//Parse data into Highstocks format
-	points = parseCSVData(csvFile);
-		$("#test").text(points);
-	
 	
 
+	
+	
   map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 13,
-    center: {lat: -32.3492, lng: 115.7334},
-    mapTypeId: 'map'
+    zoom: 9,
+    center: {lat: -32.0231, lng: 115.4765},
+    mapTypeId: 'roadmap'
   });
-	/*
+
   heatmap = new google.maps.visualization.HeatmapLayer({
-    data: points,
+    data: parseCSVData(csvFile),
     map: map
-  });*/
-  //}, "text");
+  });
+	}, "text");
 }
 
 function toggleHeatmap() {
@@ -63,8 +60,6 @@ function changeOpacity() {
 
 
 
-
-
 function parseCSVData(csvFile) {
 
 	var data = [];
@@ -86,7 +81,7 @@ function parseCSVData(csvFile) {
 			var lo = parseFloat(fields[5]);
 			var la = parseFloat(fields[6]);
 		
-			data.push("new google.maps.LatLng(" + la + "," + lo + ")"); 
+			data.push(new google.maps.LatLng(la,lo)); 
 		}
 	});
 	return data;
