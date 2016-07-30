@@ -1,7 +1,13 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Luke
- * Date: 30/07/2016
- * Time: 3:31 AM
- */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dive Don't Die</title>
+    <link rel = "stylesheet" type = "text/css" href = "../css/style.css">
+    <script src = "../js/logic.js"
+</head>
+<header>
+
+</header>
+<body>
+<h1>We are cooking with gas now noobs</h1>
