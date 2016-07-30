@@ -12,15 +12,59 @@ function initMap() {
 	
 	//$("#infoOne").text(parseCSVData(csvFile));
 	
-  map = new google.maps.Map(document.getElementById('map'), {
+  map1 = new google.maps.Map(document.getElementById('map'), {
     zoom: 9,
     center: {lat: -32.0231, lng: 115.4765},
-    mapTypeId: 'roadmap'
+    mapTypeId: 'roadmap',
+    
+    styles: [
+    	{
+    	featureType: 'all',
+    	stylers: [
+  			{ visibility: 'off' }
+			]
+		},
+		{
+    	featureType: 'water',
+    	stylers: [
+  			{ visibility: 'on' }
+			]
+		}
+		]
+  });
+  
+  map2 = new google.maps.Map(document.getElementById('map'), {
+    zoom: 9,
+    center: {lat: -32.0231, lng: 115.4765},
+    mapTypeId: 'roadmap',
+    
+    styles: [
+    	{
+    	featureType: 'all',
+    	stylers: [
+  			{ visibility: 'on' }
+			]
+		},
+		{
+    	featureType: 'water',
+    	elementType: 'geometry',
+    	stylers: [
+  			{ visibility: 'off' }
+			]
+		},
+		{
+        featureType: "landscape.natural",
+        elementType: "geometry",
+        stylers: [
+        	{ visibility: "off" }
+              ]
+          }
+		]
   });
 
   heatmap = new google.maps.visualization.HeatmapLayer({
     data: parseCSVData(csvFile),
-    map: map
+    map: map1
   });
   
   heatmap.set('radius', 100);
