@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'Libre Baskerville', serif;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.pageTitle
+{
+    display: inline-block;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 50pt;
+    font-weight: 100;
+}
+
+#pageTitleDont
+{
+    display: inline-block;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 50pt;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+#header
+{
+    margin-top: -25px;
+    text-align: center;
+}
+
+body
+{
+    background-color:#000d4a;
+    filter:progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr=#000d4a, endColorstr=#001696);
+    background-image:-moz-linear-gradient(left, #000d4a 0%, #001696 100%);
+    background-image:-webkit-linear-gradient(left, #000d4a 0%, #001696 100%);
+    background-image:-ms-linear-gradient(left, #000d4a 0%, #001696 100%);
+    background-image:linear-gradient(left, #000d4a 0%, #001696 100%);
+    background-image:-o-linear-gradient(left, #000d4a 0%, #001696 100%);
+
+}
