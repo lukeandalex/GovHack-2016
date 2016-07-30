@@ -10,7 +10,7 @@ function initMap() {
 
 	$.get(csv + ".csv", function(csvFile) {
 	
-	
+	//$("#infoOne").text(parseCSVData(csvFile));
 	
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 9,
@@ -22,6 +22,9 @@ function initMap() {
     data: parseCSVData(csvFile),
     map: map
   });
+  
+  heatmap.set('radius', 100);
+  
 	}, "text");
 }
 
@@ -65,7 +68,7 @@ function parseCSVData(csvFile) {
 
 	//Split csv file into array of rows
 	var lines = csvFile.split("\n");
-
+	var today = new Date();
 
 	//Iterate through each row
 	$.each(lines, function (lineNumber, line) {
@@ -75,12 +78,37 @@ function parseCSVData(csvFile) {
 	
 		//Push to data array if not empty
 		if (fields != "") {
-		
 			
-			var lo = parseFloat(fields[5]);
-			var la = parseFloat(fields[6]);
+			
+			var date = Date.parse(fields[fields.length - 4]);
+			
+			
+			var timeDif = today - date;
+			
+			var lo = parseFloat(fields[fields.length - 2]);
+			var la = parseFloat(fields[fields.length - 1]);
 		
-			data.push(new google.maps.LatLng(la,lo)); 
+			var dist = timeDif*0.000000000075;
+		
+			var wei = 1/(dist*4);
+			
+			var lap = la - -dist;
+			var lan = la - dist;
+			var lop = lo - -dist;
+			var lon = lo - dist;
+			
+			$("#infoTwo").append(dist + "," + wei + ",");
+		
+			data.push({location:new google.maps.LatLng(la,lo), weight: wei});
+			data.push({location:new google.maps.LatLng(lap,lo), weight: wei});
+			data.push({location:new google.maps.LatLng(la,lop), weight: wei});
+			data.push({location:new google.maps.LatLng(lan,lo), weight: wei});
+			data.push({location:new google.maps.LatLng(la,lon), weight: wei});
+			data.push({location:new google.maps.LatLng(lap,lop), weight: wei});
+			data.push({location:new google.maps.LatLng(lan,lop), weight: wei});
+			data.push({location:new google.maps.LatLng(lap,lon), weight: wei});
+			data.push({location:new google.maps.LatLng(lan,lon), weight: wei});
+			
 		}
 	});
 	return data;
