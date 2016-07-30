@@ -10,7 +10,6 @@ function initMap() {
 
 	$.get(csv + ".csv", function(csvFile) {
 	
-	$("#infoOne").text(parseCSVData(csvFile));
 	
 	
   map = new google.maps.Map(document.getElementById('map'), {
