@@ -2,6 +2,11 @@
     font-family: 'Libre Baskerville', serif;
     font-family: 'Open Sans', sans-serif;
 }
+html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
 
 .pageTitle
 {
@@ -41,3 +46,6 @@ body
     background-image:-o-linear-gradient(left, #000d4a 0%, #001696 100%);
 
 }
+#map {
+        height: 100%;
+      }
