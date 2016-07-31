@@ -5,6 +5,10 @@ var csv1 = "EXPORT_Detection20160727";
 var csv2 = "EXPORT_Sighting20160727";
 
 var points = [];
+var lat, lng;
+
+var marker;
+
 
 function initMap() {
 
@@ -24,6 +28,18 @@ function initMap() {
 			minZoom: 9,
 			maxZoom: 14
 		  });
+		 
+		 
+
+		
+		google.maps.event.addListener(map, 'click', function( event ){
+			if (marker) {
+				marker.setMap(null);
+			};
+			placeMarker(event.latLng);
+			lat = event.latLng.lat();
+			lng = event.latLng.lng(); 
+		});
 
 
 		  heatmap = new google.maps.visualization.HeatmapLayer({
@@ -42,7 +58,12 @@ function initMap() {
 
 
 
-
+function placeMarker(location) {
+    marker = new google.maps.Marker({
+        position: location, 
+        map: map
+    });
+}
 
 
 function parseCSVData(csvFile) {
@@ -85,7 +106,7 @@ function parseCSVData(csvFile) {
 			*/
 			var rad = 0.0045;
 			
-			$("#infoTwo").append(wei + "," + timeDif + ",");
+			//$("#infoTwo").append(wei + "," + timeDif + ",");
 			
 			var dist = parseInt(wei*9);
 		
