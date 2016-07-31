@@ -17,6 +17,8 @@ html, body {
     font-weight: 100;
 }
 
+
+
 #pageTitleDont
 {
     display: inline-block;
@@ -35,8 +37,51 @@ html, body {
     text-align: center;
 }
 
+#conditions
+{
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    font-weight: 100;
+}
+
+#conditionsDate
+{
+    font-size: 12pt;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    font-weight: 800;
+}
+
+#swell, #wind, #tide, #waterTemp, #season
+{
+    margin-left: 70px;
+    display: inline-block;
+    line-height: 10px;
+    font-size: 12pt;
+
+
+
+
+}
+
+.diveSafteyInfo p
+{
+    margin-bottom: 10px;
+
+}
+
+#infoOne, #infoTwo, #infoThree, #infoFour, #infoFive
+{
+    margin-top: 2px;
+    margin-bottom: 2px;
+    border-bottom-style: solid;
+    border-width: 1px;
+}
+
 body
 {
+    margin-left: 5%;
+    margin-right: 5%;
     background-color:#000d4a;
     filter:progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr=#000d4a, endColorstr=#001696);
     background-image:-moz-linear-gradient(left, #000d4a 0%, #001696 100%);
@@ -46,6 +91,22 @@ body
     background-image:-o-linear-gradient(left, #000d4a 0%, #001696 100%);
 
 }
+
+.diveSafteyInfo
+{
+    color: white;
+    font-size: 13pt;
+    font-family: 'Open Sans', sans-serif;
+    width: 200px;
+    float: left;
+
+
+}
+
+
 #map {
-        height: 100%;
+        height: 80%;
+        width: 60%;
+        float: right;
+        margin-right: 15%;
       }
