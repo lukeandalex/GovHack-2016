@@ -97,7 +97,7 @@ function parseCSVData(csvFile) {
 		
 			//var dist = timeDif*0.0000000000075;
 		
-			var wei = (timeDif/2592000000)/2;
+			var wei = (timeDif/2592000000)/3;
 			/*
 			var lap = la - -dist;
 			var lan = la - dist;
@@ -106,10 +106,13 @@ function parseCSVData(csvFile) {
 			*/
 			var rad = 0.0045;
 			
-			//$("#infoTwo").append(wei + "," + timeDif + ",");
 			
-			var dist = parseInt(wei*9);
+			var dist = parseInt(wei*21);
+			
+			//var wei = 1/timeScaled;
 		
+			$("#infoTwo").append(wei + "," + dist + ",");
+			
 			for (i=1; i<dist; i++) {
 				if (lo < 115.7547756) {
 				for (j=0; j<i+1; j++){
@@ -121,7 +124,7 @@ function parseCSVData(csvFile) {
 					data.push({location:new google.maps.LatLng(la - -k*rad,lo - i*rad), weight: wei});
 				}
 				}
-				data.push({location:new google.maps.LatLng(la,lo), weight: wei});
+				data.push({location:new google.maps.LatLng(la,lo), weight: wei*10});
 				data.push({location:new google.maps.LatLng(la,lo - i*rad), weight: wei});
 			}
 		
